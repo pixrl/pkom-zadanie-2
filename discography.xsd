@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pkck="zadanie2"
+    targetNamespace="zadanie2"
+    elementFormDefault="qualified">
+    <xs:element name = "document" type = "pkck:documentType"/>
+
+        <!-- document type -->
+        <xsd:attributeGroup name="calendar">
+            <xsd:attribute name="day">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:integer">
+                        <xsd:minInclusive value="0"/>
+                        <xsd:maxInclusive value="31"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="month">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="January"/>
+                        <xsd:enumeration value="February"/>
+                        <xsd:enumeration value="March"/>
+                        <xsd:enumeration value="April"/>
+                        <xsd:enumeration value="May"/>
+                        <xsd:enumeration value="June"/>
+                        <xsd:enumeration value="July"/>
+                        <xsd:enumeration value="August"/>
+                        <xsd:enumeration value="September"/>
+                        <xsd:enumeration value="October"/>
+                        <xsd:enumeration value="November"/>
+                        <xsd:enumeration value="December"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="year" type="xsd:gYear"/>
+        </xsd:attributeGroup>
+        <xsd:element name="music">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="info" type="pkck:info-type"/>
+                    <xsd:element name="cd" type="pkck:cd-type" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+        <xsd:complexType name="info-type">
+            <xsd:sequence>
+                <xsd:element name="topic" type="xsd:string">
+                <xsd:element name="authors" type="pkck:authors-type"/>
+                <xsd:element name="modified" type="pkck:modified-type"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="authors-type">
+            <xsd:sequence>
+                <xsd:element name="person" type="moja_przestrzen:person-type" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="person-type">
+            <xsd:sequence>
+                <xsd:element name="name">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="20"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="surname" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:attribute name="id">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:id">
+                        <xsd:pattern value="id_[0-9]{6}"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+        </xsd:complexType>
+        <xsd:complexType name="modified-type">
+            <xsd:attributeGroup ref="pkck:calendar"/>
+            <xsd:attribute name="person" type="xsd:IDREF"/>
+        </xsd:complexType>
+        <xsd:complexType name="cd-type">
+            <xsd:sequence>
+                <xsd:element name="title" type="xsd:string"/>
+                <xsd:element name="artist" type="xsd:string"/>
+                <xsd:element name="songs" type="pkck:songs-type"/>
+                <xsd:element name="description" type="pkck:description-type"/>
+                <xsd:element name="genres" type="pkck:genres-type"/>
+                <xsd:element name="released" type="pkck:released-type"/>
+                <xsd:element name="score" type="pkck:score-type"/>
+                <xsd:element name="currency" type="pkck:currency-type"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="songs-type">
+            <xsd:sequence>
+                <xsd:element name="song" type="moja_przestrzen:song-type" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="song-type">
+            <xsd:attribute name="title" type="xsd:string"/>
+            <xsd:attribute name="length" type="xsd:string"/>
+        </xsd:complexType>
+        <xsd:complexType name="description-type">
+        </xsd:complexType>
+</xsd:schema>
