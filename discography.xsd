@@ -1,105 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:pkck="zadanie2"
     targetNamespace="zadanie2"
     elementFormDefault="qualified">
     <xs:element name = "document" type = "pkck:documentType"/>
-
-        <!-- document type -->
-        <xsd:attributeGroup name="calendar">
-            <xsd:attribute name="day">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:integer">
-                        <xsd:minInclusive value="0"/>
-                        <xsd:maxInclusive value="31"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:attribute>
-            <xsd:attribute name="month">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="January"/>
-                        <xsd:enumeration value="February"/>
-                        <xsd:enumeration value="March"/>
-                        <xsd:enumeration value="April"/>
-                        <xsd:enumeration value="May"/>
-                        <xsd:enumeration value="June"/>
-                        <xsd:enumeration value="July"/>
-                        <xsd:enumeration value="August"/>
-                        <xsd:enumeration value="September"/>
-                        <xsd:enumeration value="October"/>
-                        <xsd:enumeration value="November"/>
-                        <xsd:enumeration value="December"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:attribute>
-            <xsd:attribute name="year" type="xsd:gYear"/>
-        </xsd:attributeGroup>
-        <xsd:element name="music">
-            <xsd:complexType>
-                <xsd:sequence>
-                    <xsd:element name="info" type="pkck:info-type"/>
-                    <xsd:element name="cd" type="pkck:cd-type" minOccurs="0" maxOccurs="unbounded"/>
-                </xsd:sequence>
-            </xsd:complexType>
-        </xsd:element>
-        <xsd:complexType name="info-type">
-            <xsd:sequence>
-                <xsd:element name="topic" type="xsd:string">
-                <xsd:element name="authors" type="pkck:authors-type"/>
-                <xsd:element name="modified" type="pkck:modified-type"/>
-            </xsd:sequence>
-        </xsd:complexType>
-        <xsd:complexType name="authors-type">
-            <xsd:sequence>
-                <xsd:element name="person" type="moja_przestrzen:person-type" minOccurs="1" maxOccurs="unbounded"/>
-            </xsd:sequence>
-        </xsd:complexType>
-        <xsd:complexType name="person-type">
-            <xsd:sequence>
-                <xsd:element name="name">
-                    <xsd:simpleType>
-                        <xsd:restriction base="xsd:string">
-                            <xsd:maxLength value="20"/>
-                        </xsd:restriction>
-                    </xsd:simpleType>
-                </xsd:element>
-                <xsd:element name="surname" type="xsd:string"/>
-            </xsd:sequence>
-            <xsd:attribute name="id">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:id">
-                        <xsd:pattern value="id_[0-9]{6}"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:attribute>
-        </xsd:complexType>
-        <xsd:complexType name="modified-type">
-            <xsd:attributeGroup ref="pkck:calendar"/>
-            <xsd:attribute name="person" type="xsd:IDREF"/>
-        </xsd:complexType>
-        <xsd:complexType name="cd-type">
-            <xsd:sequence>
-                <xsd:element name="title" type="xsd:string"/>
-                <xsd:element name="artist" type="xsd:string"/>
-                <xsd:element name="songs" type="pkck:songs-type"/>
-                <xsd:element name="description" type="pkck:description-type"/>
-                <xsd:element name="genres" type="pkck:genres-type"/>
-                <xsd:element name="released" type="pkck:released-type"/>
-                <xsd:element name="score" type="pkck:score-type"/>
-                <xsd:element name="currency" type="pkck:currency-type"/>
-            </xsd:sequence>
-        </xsd:complexType>
-        <xsd:complexType name="songs-type">
-            <xsd:sequence>
-                <xsd:element name="song" type="moja_przestrzen:song-type" minOccurs="1" maxOccurs="unbounded"/>
-            </xsd:sequence>
-        </xsd:complexType>
-        <xsd:complexType name="song-type">
-            <xsd:attribute name="title" type="xsd:string"/>
-            <xsd:attribute name="length" type="xsd:string"/>
-        </xsd:complexType>
-        <xsd:complexType name="description-type">
-        </xsd:complexType>
-</xsd:schema>
+    <!-- document type -->
+    <xs:complexType name = "documentType">
+        <xs:sequence>
+            <xs:element name = "music" type="pkck:music-type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:attributeGroup name="calendar">
+        <xs:attribute name="day">
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="31"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="month">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="January"/>
+                    <xs:enumeration value="February"/>
+                    <xs:enumeration value="March"/>
+                    <xs:enumeration value="April"/>
+                    <xs:enumeration value="May"/>
+                    <xs:enumeration value="June"/>
+                    <xs:enumeration value="July"/>
+                    <xs:enumeration value="August"/>
+                    <xs:enumeration value="September"/>
+                    <xs:enumeration value="October"/>
+                    <xs:enumeration value="November"/>
+                    <xs:enumeration value="December"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="year" type="xs:gYear"/>
+    </xs:attributeGroup>
+    <xs:complexType name="music-type">
+        <xs:sequence>
+            <xs:element name="info" type="pkck:info-type"/>
+            <xs:element name="cd" type="pkck:cd-type" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="info-type">
+        <xs:sequence>
+            <xs:element name="topic" type="xs:string"/>
+            <xs:element name="authors" type="pkck:authors-type"/>
+            <xs:element name="modified" type="pkck:modified-type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authors-type">
+        <xs:sequence>
+            <xs:element name="person" type="pkck:person-type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="person-type">
+        <xs:sequence>
+            <xs:element name="forename">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="surname" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id">
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:pattern value="[0-9]{6}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="modified-type">
+        <xs:attributeGroup ref="pkck:calendar"/>
+        <xs:attribute name="person" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="cd-type">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="artist" type="xs:string"/>
+            <xs:element name="songs" type="pkck:songs-type"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="genres" type="pkck:genres-type"/>
+            <xs:element name="released" type="pkck:released-type"/>
+            <xs:element name="score" type="pkck:score-type"/>
+            <xs:element name="price" type="pkck:price-type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="songs-type">
+        <xs:sequence>
+            <xs:element name="song" type="pkck:song-type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="song-type">
+        <xs:attribute name="title" type="xs:string"/>
+        <xs:attribute name="length" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="genres-type">
+        <xs:sequence>
+            <xs:element name="genre" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="type" default="Other">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Rap"/>
+                                <xs:enumeration value="Pop"/>
+                                <xs:enumeration value="Hiphop"/>
+                                <xs:enumeration value="Trap"/>
+                                <xs:enumeration value="Swing"/>
+                                <xs:enumeration value="Jazz"/>
+                                <xs:enumeration value="Funk"/>
+                                <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="price-type">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="currency" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="currency-type">
+        <xs:attribute name="currency">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="([A-Z]{3})"/>
+            </xs:restriction>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="score-type">
+        <xs:attribute name="value" default="0.0">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="-5.0"/>
+                    <xs:maxInclusive value="5.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="released-type">
+        <xs:element name="world" minOccurs="0">
+            <xs:complexType>
+                <xs:attributeGroup ref="pkck:calendar"/>
+            </xs:complexType>
+        </xs:element>
+    </xs:complexType>
+</xs:schema>
