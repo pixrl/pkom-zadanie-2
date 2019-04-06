@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type='text/css' href='discography.css'?>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml-stylesheet type="text/css" href="discography.css"?>
 <document
-xmlns ="zadanie2"
+xmlns="pkom-zadanie-2"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="zadanie2 discography.xsd">
+xsi:schemaLocation="pkom-zadanie-2 discography.xsd">
 <music>
     <info>
         <topic>Music collection</topic>
         <authors>
-            <person id='210231'>
+            <person>
                 <forename>Szymon</forename>
                 <surname>Koziarski</surname>
+                <id>210231</id>
             </person>
         </authors>
         <modified day="9" month="October" year="2019" person='210231'/>
@@ -35,9 +36,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Rap" />
         </genres>
-        <released>
-            <world day='21' month='March' year='2011'/>
-        </released>
+        <released day='21' month='March' year='2011'/>
         <score value='4.0'/>
         <price currency="PLN">39</price>
     </cd>
@@ -61,9 +60,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Rap" />
         </genres>
-        <released>
-            <world day='16' month='November' year='2012'/>
-        </released>
+        <released day='16' month='November' year='2012'/>
         <score value='4.0'/>
         <price currency="PLN">49</price>
     </cd>
@@ -87,9 +84,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Rap" />
         </genres>
-        <released>
-            <world day='21' month='December' year='2011'/>
-        </released>
+        <released day='21' month='December' year='2011'/>
         <score value='4.0'/>
         <price currency="PLN">43</price>
     </cd>
@@ -123,9 +118,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Rap" />
             <genre type="Pop" />
         </genres>
-        <released>
-            <world day='25' month='November' year='2016'/>
-        </released>
+        <released day='25' month='November' year='2016'/>
         <score value='3.5'/>
         <price currency="PLN">39</price>
     </cd>
@@ -161,9 +154,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Rap" />
             <genre type="Pop" />
         </genres>
-        <released>
-            <world day='29' month='April' year='2016'/>
-        </released>
+        <released day='29' month='April' year='2016'/>
         <score value='4.0'/>
         <price currency="PLN">49</price>
     </cd>
@@ -198,9 +189,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Hiphop" />
             <genre type="Trap" />
         </genres>
-        <released>
-            <world day='13' month='February' year='2015'/>
-        </released>
+        <released day='13' month='February' year='2015'/>
         <score value='4.0'/>
         <price currency="PLN">39</price>
     </cd>
@@ -238,9 +227,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Hiphop" />
             <genre type="Rap" />
         </genres>
-        <released>
-            <world day='18' month='March' year='2017'/>
-        </released>
+        <released day='18' month='March' year='2017'/>
         <score value='4.0'/>
         <price currency="PLN">39</price>
     </cd>
@@ -273,9 +260,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Pop" />
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='24' month='October' year='2011'/>
-        </released>
+        <released day='24' month='October' year='2011'/>
         <score value='4.0'/>
         <price currency="PLN">29</price>
     </cd>
@@ -307,9 +292,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Pop" />
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='20' month='January' year='1987'/>
-        </released>
+        <released day='20' month='January' year='1987'/>
         <score value='4.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -340,9 +323,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Jazz" />
             <genre type="Pop" />
         </genres>
-        <released>
-            <world day='6' month='January' year='1958'/>
-        </released>
+        <released day='6' month='January' year='1958'/>
         <score value='5.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -366,9 +347,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Jazz" />
             <genre type="Pop" />
         </genres>
-        <released>
-            <world day='5' month='November' year='1954'/>
-        </released>
+        <released day='5' month='November' year='1954'/>
         <score value='4.5'/>
         <price currency="PLN">19</price>
     </cd>
@@ -390,9 +369,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='27' month='January' year='1960'/>
-        </released>
+        <released day='27' month='January' year='1960'/>
         <score value='5.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -411,9 +388,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='1' month='March' year='1961'/>
-        </released>
+        <released day='1' month='March' year='1961'/>
         <score value='5.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -433,9 +408,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='15' month='September' year='1957'/>
-        </released>
+        <released day='15' month='September' year='1957'/>
         <score value='5.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -457,9 +430,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='1' month='February' year='1963'/>
-        </released>
+        <released day='1' month='February' year='1963'/>
         <score value='4.5'/>
         <price currency="PLN">19</price>
     </cd>
@@ -484,9 +455,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='22' month='June' year='2010'/>
-        </released>
+        <released day='22' month='June' year='2010'/>
         <score value='4.0'/>
         <price currency="PLN">24</price>
     </cd>
@@ -508,9 +477,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='14' month='February' year='1968'/>
-        </released>
+        <released day='14' month='February' year='1968'/>
         <score value='4.5'/>
         <price currency="PLN">19</price>
     </cd>
@@ -535,9 +502,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='1' month='May' year='1968'/>
-        </released>
+        <released day='1' month='May' year='1968'/>
         <score value='3.0'/>
         <price currency="PLN">19</price>
     </cd>
@@ -562,9 +527,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
             <genre type="Jazz" />
             <genre type="Funk" />
         </genres>
-        <released>
-            <world day='1' month='September' year='1975'/>
-        </released>
+        <released day='1' month='September' year='1975'/>
         <score value='4.5'/>
         <price currency="PLN">29</price>
     </cd>
@@ -584,9 +547,7 @@ xsi:schemaLocation="zadanie2 discography.xsd">
         <genres>
             <genre type="Jazz" />
         </genres>
-        <released>
-            <world day='6' month='July' year='1991'/>
-        </released>
+        <released day='6' month='July' year='1991'/>
         <score value='4.0'/>
         <price currency="PLN">19</price>
     </cd>

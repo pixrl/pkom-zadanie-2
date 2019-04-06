@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:pkck="zadanie2"
-    targetNamespace="zadanie2"
+    xmlns:pkck="pkom-zadanie-2"
+    targetNamespace="pkom-zadanie-2"
     elementFormDefault="qualified">
-    <xs:element name = "document" type = "pkck:documentType"/>
+    <xs:element name = "document" type = "pkck:documentType">
+        <xs:key name="uniqueAuthorId">
+            <xs:selector xpath="authors/author"/>
+            <xs:field xpath="id"/>
+        </xs:key>
+        <xs:key name="genreKey">
+            <xs:selector xpath="pkck:genres/pkck:genre"/>
+            <xs:field xpath="@genre"/>
+        </xs:key>
+
+    </xs:element>
     <!-- document type -->
     <xs:complexType name = "documentType">
         <xs:sequence>
@@ -68,14 +78,14 @@
                 </xs:simpleType>
             </xs:element>
             <xs:element name="surname" type="xs:string"/>
+            <xs:element name="id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:pattern value="[0-9]{6}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
-        <xs:attribute name="id">
-            <xs:simpleType>
-                <xs:restriction base="xs:integer">
-                    <xs:pattern value="[0-9]{6}"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
     </xs:complexType>
     <xs:complexType name="modified-type">
         <xs:attributeGroup ref="pkck:calendar"/>
@@ -133,9 +143,11 @@
     </xs:complexType>
     <xs:complexType name="currency-type">
         <xs:attribute name="currency">
-            <xs:restriction base="xs:string">
-                <xs:pattern value="([A-Z]{3})"/>
-            </xs:restriction>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="([A-Z]{3})"/>
+                </xs:restriction>
+            </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
     <xs:complexType name="score-type">
@@ -149,10 +161,6 @@
         </xs:attribute>
     </xs:complexType>
     <xs:complexType name="released-type">
-        <xs:element name="world" minOccurs="0">
-            <xs:complexType>
-                <xs:attributeGroup ref="pkck:calendar"/>
-            </xs:complexType>
-        </xs:element>
+        <xs:attributeGroup ref="pkck:calendar"/>
     </xs:complexType>
 </xs:schema>
